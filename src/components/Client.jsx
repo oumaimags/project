@@ -14,7 +14,7 @@ function Client() {
     const clientData = {
       nom,
       adresse,
-      numeroTel,
+      mail,
     };
 
     try {
