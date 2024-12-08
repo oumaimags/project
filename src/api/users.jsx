@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:8080/api/users';  // Remplacez par l'URL de votre backend
+const API_URL = 'http://localhost:9999/api/users'; 
 
 // Récupérer tous les utilisateurs
 export const getAllUsers = async () => {

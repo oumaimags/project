@@ -21,7 +21,7 @@ const Reparation = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('https://your-backend-endpoint.com/api/reparation', formData);
+      const response = await axios.post('https://loacalhost:9999/api/Reparation', formData);
       setResponseMessage('Réparation ajoutée avec succès !');
       console.log('Server response:', response.data);
       // Optionally, redirect to the next page here if needed

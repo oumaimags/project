@@ -1,11 +1,9 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:8080/api/demandes';  // Remplacez par l'URL de votre backend
-
 // Récupérer toutes les demandes
 export const getAllDemandes = async () => {
     try {
-        const response = await axios.get(API_URL);
+        const response = await axios.get('http://localhost:9999/api/demande');
         return response.data;
     } catch (error) {
         console.error('Erreur lors de la récupération des demandes', error);
@@ -16,7 +14,7 @@ export const getAllDemandes = async () => {
 // Récupérer une demande par ID
 export const getDemandeByCode = async (id) => {
     try {
-        const response = await axios.get(`${API_URL}/${id}`);
+        const response = await axios.get(`${'http://localhost:9999/api/demande'}/${id}`);
         return response.data;
     } catch (error) {
         console.error('Erreur lors de la récupération de la demande', error);
@@ -27,7 +25,7 @@ export const getDemandeByCode = async (id) => {
 // Créer une demande
 export const createDemande = async (demandeRep) => {
     try {
-        const response = await axios.post(API_URL, demandeRep);
+        const response = await axios.post('http://localhost:9999/api/demande', demandeRep);
         return response.data;
     } catch (error) {
         console.error('Erreur lors de la création de la demande', error);
@@ -38,7 +36,7 @@ export const createDemande = async (demandeRep) => {
 // Mettre à jour une demande
 export const updateDemande = async (id, demandeRep) => {
     try {
-        const response = await axios.put(`${API_URL}/${id}`, demandeRep);
+        const response = await axios.put(`${'http://localhost:9999/api/demande'}/${id}`, demandeRep);
         return response.data;
     } catch (error) {
         console.error('Erreur lors de la mise à jour de la demande', error);
@@ -49,7 +47,7 @@ export const updateDemande = async (id, demandeRep) => {
 // Supprimer une demande
 export const deleteDemande = async (id) => {
     try {
-        await axios.delete(`${API_URL}/${id}`);
+        await axios.delete(`${'http://localhost:9999/api/demande'}/${id}`);
     } catch (error) {
         console.error('Erreur lors de la suppression de la demande', error);
         throw error;

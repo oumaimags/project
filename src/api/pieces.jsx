@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:8080/api/pieces';  // Remplacez par l'URL de votre backend
+const API_URL = 'http://localhost:9999/api/pieces'; 
 
 // Récupérer toutes les pièces
 export const getAllPieces = async () => {

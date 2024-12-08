@@ -24,7 +24,7 @@ const PieceRechange = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('https://your-backend-endpoint.com/api/piece', formData);
+      const response = await axios.post('https://loacalhost:9999/api/pieceRechange', formData);
       setResponseMessage('Pièce de rechange ajoutée avec succès !');
       console.log('Server response:', response.data);
     } catch (error) {

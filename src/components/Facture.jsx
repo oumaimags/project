@@ -12,7 +12,7 @@ function Facture() {
       numeroF: numeroFacture,  
       montant: montantTotal,   
     };
-    axios.post('http://localhost:3306/api/facture', factureData) 
+    axios.post('https://loacalhost:9999/api/facture', factureData) 
       .then(response => {
         setMessage('Facture enregistrée avec succès!');
         console.log('Facture créée:', response.data); 
