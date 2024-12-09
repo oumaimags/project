@@ -1,73 +1,90 @@
 import React, { useState } from 'react';
-import axios from 'axios'; 
-import '/Users/DELL/RepAppBuro/src/App.css';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import './Client.css';
 
-function Client() {
-  const [nom, setNom] = useState('');
-  const [adresse, setAdresse] = useState('');
-  const [numeroTel, setNumeroTel] = useState('');
-  const [responseMessage, setResponseMessage] = useState('');
+const Client = () => {
+  const [client, setClient] = useState({
+    nom: '',
+    adresse: '',
+    numtel: '',
+  });
 
-  const handleConnexion = async (event) => {
-    event.preventDefault();
-    
-    const clientData = {
-      nom,
-      adresse,
-      mail,
-    };
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setClient((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleEnregistrer = async () => {
+    const { nom, adresse, numtel } = client;
+    if (!nom || !adresse || !numtel) {
+      alert('Tous les champs sont obligatoires !');
+      return;
+    }
 
     try {
-      const response = await axios.post('https://loacalhost:9999/api/client', clientData);
-      setResponseMessage('Client data submitted successfully!');
-      console.log('Server response:', response.data);
+      await axios.post('http://localhost:9999/api/clients/ajouter', client, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      alert('Client enregistré avec succès !');
+      navigate('/DemandeReparation');
     } catch (error) {
-      setResponseMessage('Failed to submit client data.');
-      console.error('Error:', error);
+      console.error('Erreur lors de l\'enregistrement :', error);
+      alert('Erreur lors de l\'enregistrement !');
     }
   };
 
   return (
-    <div className='a'>
-      <h1>Client</h1>
-  <form onSubmit={handleConnexion} className="form">
-    <div className="form-group">
-      <label htmlFor="nom">Nom:</label>
-      <input 
-        id="nom" 
-        type="text" 
-        value={nom} 
-        onChange={(e) => setNom(e.target.value)} 
-        className="form-input"
-      />
-    </div>
+    <div className="container">
+      <h2>Enregistrer un Client</h2>
+      <form>
+        <div className="form-group">
+          <label htmlFor="nom">Nom :</label>
+          <input
+            type="text"
+            id="nom"
+            name="nom"
+            placeholder="Entrez le nom"
+            value={client.nom}
+            onChange={handleChange}
+          />
+        </div>
 
-    <div className="form-group">
-      <label htmlFor="adresse">Adresse:</label>
-      <textarea 
-        id="adresse"
-        value={adresse} 
-        onChange={(e) => setAdresse(e.target.value)} 
-        className="form-input"
-      />
-    </div>
+        <div className="form-group">
+          <label htmlFor="adresse">Adresse :</label>
+          <input
+            type="text"
+            id="adresse"
+            name="adresse"
+            placeholder="Entrez l'adresse"
+            value={client.adresse}
+            onChange={handleChange}
+          />
+        </div>
 
-    <div className="form-group">
-      <label htmlFor="numeroTel">Numéro de téléphone:</label>
-      <input 
-        id="numeroTel" 
-        type="tel" 
-        value={numeroTel} 
-        onChange={(e) => setNumeroTel(e.target.value)} 
-        className="form-input"
-      />
-    </div>
+        <div className="form-group">
+          <label htmlFor="numtel">Téléphone :</label>
+          <input
+            type="text"
+            id="numtel"
+            name="numtel"
+            placeholder="Entrez le numéro de téléphone"
+            value={client.numtel}
+            onChange={handleChange}
+          />
+        </div>
 
-        <button type='submit'><a href="/DemandeReparation">Ajoute</a></button>
+        <button type="button" onClick={handleEnregistrer}>
+          Enregistrer
+        </button>
       </form>
-      {responseMessage && <p>{responseMessage}</p>}
     </div>
   );
-}
+};
 
 export default Client;
+

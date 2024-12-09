@@ -1,0 +1,81 @@
+/* Conteneur principal pour la facture */
+.facture-container {
+    max-width: 600px;
+    margin: 50px auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Titre de la page */
+  .facture-container h1 {
+    text-align: center;
+    color: #333;
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  
+  /* Détails de la facture */
+  .facture-details {
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Groupes de formulaire */
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #555;
+    display: block;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .form-group input:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  
+  /* Bouton confirmer */
+  .confirm-button {
+    width: 100%;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .confirm-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Message de confirmation ou d'erreur */
+  p {
+    text-align: center;
+    color: green;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+  
+  p.error {
+    color: red;
+  }
+  

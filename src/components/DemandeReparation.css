@@ -1,0 +1,68 @@
+/* Conteneur principal */
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Titre principal */
+  .container h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+    text-align: center;
+  }
+  
+  /* Formulaire */
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #555;
+  }
+  
+  .form-group input {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .form-group input:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  
+  /* Boutons */
+  .container .button-group {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .container button {
+    flex: 1;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+    text-align: center;
+  }
+  
+  .container button:hover {
+    background-color: #0056b3;
+  }
+  
